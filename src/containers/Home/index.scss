@@ -1,1 +1,76 @@
 @import '../../styles/variables.scss';
+
+.home {
+  width: 90vw;
+}
+
+.home__search-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+
+  span {
+    background-color: $color-grey-4;
+    color: $color-grey-0;
+    border-radius: .5rem;
+    font-weight: 600;
+    padding: .25rem .75rem;
+    margin: 0 0 .125rem .25rem;
+  }
+}
+
+.home__input-container {
+  width: 100%;
+  display: flex;
+  border-radius: .375rem;
+  overflow: hidden;
+  box-shadow: rgba(0,0,82, 0.15) 0 .125rem .25rem;
+
+  input {
+    border: none;
+    padding: .75rem .875rem;
+    box-sizing: border-box;
+    font-size: .875rem;
+    outline: none;
+    width: 90%;
+    font-weight: 300;
+    
+    &::placeholder {
+      color: $color-grey-3;
+      font-weight: 400;
+    }
+  }
+
+  button {
+    background-color: $color-grey-6;
+    border: none;
+    border-left: .125rem $color-grey-4 solid;
+    color: $color-grey-2;
+    cursor: pointer;
+    font-weight: 700;
+    width: 30%;
+
+    &:hover {
+      background-color: $color-grey-5;
+      color: $color-grey-3;
+    }
+
+    &:active {
+      background-color: $color-grey-4;
+      color: $color-grey-2;
+    }
+  }
+}
+
+.home__image-section {
+
+}
+
+@media (min-width: $screen-xl) {
+  .home__input-container {
+    button {
+      width: 10%;
+    }
+  }
+}

@@ -1,4 +1,5 @@
 import React from 'react'
+import './index.scss'
 
 import surpriseMePrompts from '../../constants'
 
@@ -7,7 +8,7 @@ const Home = () => {
     <div className='home'>
       <section className='home__search-section'>
         <p>Start with a detailed description 
-          <span className='home__surprise'>Surprise me</span>
+          <span>Surprise me</span>
         </p>
         <div className="home__input-container">
           <input placeholder="Insert your prompt here"/>

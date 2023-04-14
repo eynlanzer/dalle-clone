@@ -5,12 +5,24 @@
 }
 
 body {
-  background-color: $color-grey-4;
+  background-color: $color-grey-5;
   color: $color-grey-2;
   height: 100vh;
   margin: 0;
   padding: 0;
   width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+p {
+  font-size: .875rem;
+}
+
+@media (min-width: $screen-md) {
+  p {
+    font-size: 1rem;
+  }
 }
 
 
