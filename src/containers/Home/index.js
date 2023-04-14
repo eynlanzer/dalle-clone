@@ -4,6 +4,26 @@ import './index.scss'
 import surpriseMePrompts from '../../constants'
 
 const Home = () => {
+
+  const generateImages = async () => {
+    try {
+      const options = {
+        method: 'POST',
+        body: JSON.stringify({
+          message: 'An african samurai'
+        }),
+        headers: {
+          "Content-type": "application/json"
+        }
+      }
+      const response = await fetch('/images', options)
+      const data = await response.json()
+      console.log(data)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   return (
     <div className='home'>
       <section className='home__search-section'>
@@ -12,7 +32,7 @@ const Home = () => {
         </p>
         <div className="home__input-container">
           <input placeholder="Insert your prompt here"/>
-          <button>Generate</button>
+          <button onClick={generateImages}>Generate</button>
         </div>
       </section>
       <section className='home__image-section'>
