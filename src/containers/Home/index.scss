@@ -64,7 +64,18 @@
 }
 
 .home__image-section {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-between;
 
+  img {
+    margin: .125rem;
+    min-width: 15.625rem;
+    max-width: 33%;
+    flex-grow: 1;
+  }
 }
 
 @media (min-width: $screen-xl) {
