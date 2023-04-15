@@ -64,21 +64,19 @@
 }
 
 .home__image-section {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, max-content));
+  gap: 1rem;
+  max-width: 100%;
+  margin: 1.5rem 0;
 
   img {
-    margin: .125rem;
-    min-width: 15.625rem;
-    max-width: 33%;
-    flex-grow: 1;
+    max-width: 100%;
+    height: auto; 
   }
 }
 
-@media (min-width: $screen-xl) {
+@media (min-width: $screen-md) {
   .home__input-container {
     button {
       width: 10%;
