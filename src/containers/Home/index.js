@@ -10,6 +10,10 @@ const Home = () => {
   const [promptValue, setPromptValue] = useState(null)
 
   const generateImages = async () => {
+    setImages(null)
+    if (promptValue === null) {
+      alert('Error! Please insert a valid prompt')
+    }
     try {
       axios.post('/images', { message: promptValue }).then(response => {
         console.log(response)
