@@ -3,14 +3,15 @@ import axios from 'axios'
 
 import './index.scss'
 
-import surpriseMePrompts from '../../constants'
+import { surpriseMePrompts } from '../../constants'
 
 const Home = () => {
   const [images, setImages] = useState([])
   const [promptValue, setPromptValue] = useState(null)
+
   const generateImages = async () => {
     try {
-      axios.post('/images', { prompt: 'An african samurai' }).then(response => {
+      axios.post('/images', { message: promptValue }).then(response => {
         console.log(response)
         setImages(response.data)
       }) 
@@ -19,11 +20,16 @@ const Home = () => {
     }
   }
 
+  const handleSurpriseMe = () => {
+    const randomPrompt = surpriseMePrompts[Math.floor(Math.random() * surpriseMePrompts.length)]
+    setPromptValue(randomPrompt)
+  }
+
   return (
     <div className='home'>
       <section className='home__search-section'>
         <p>Start with a detailed description 
-          <span>Surprise me</span>
+          <span onClick={handleSurpriseMe}>Surprise me</span>
         </p>
         <div className="home__input-container">
           <input 
