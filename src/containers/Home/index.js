@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import axios from 'axios'
-
 import './index.scss'
-
+import Modal from "../../components/Modal";
 import { surpriseMePrompts } from '../../constants'
 
 const Home = () => {
   const [images, setImages] = useState([])
   const [promptValue, setPromptValue] = useState(null)
+  const [selectedImage, setSelectedImage] = useState(null)
+  const [modalOpen, setModalOpen] = useState(false)
 
   const generateImages = async () => {
     setImages(null)
@@ -24,6 +25,21 @@ const Home = () => {
     }
   }
 
+  const uploadImage = async(e) => {
+    const formData = new FormData()
+    formData.append('file', e.target.files[0])
+    setModalOpen(true)
+    setSelectedImage(e.target.files[0])
+
+    try {
+      axios.post('/upload', formData).then(response => {
+        console.log(response)
+      }) 
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
   const handleSurpriseMe = () => {
     const randomPrompt = surpriseMePrompts[Math.floor(Math.random() * surpriseMePrompts.length)]
     setPromptValue(randomPrompt)
@@ -31,9 +47,9 @@ const Home = () => {
 
   return (
     <div className='home'>
-      <section className='home__search-section'>
+      <section className='home__input-section'>
         <p>Start with a detailed description 
-          <span onClick={handleSurpriseMe}>Surprise me</span>
+          <span className='home__input-surprise' onClick={handleSurpriseMe}>Surprise me</span>
         </p>
         <div className="home__input-container">
           <input 
@@ -43,6 +59,20 @@ const Home = () => {
           />
           <button onClick={generateImages}>Generate</button>
         </div>
+        <p className='home__uploader'>Or,&nbsp;
+          <span>
+            <label htmlFor="files">upload an image</label>
+            <input onChange={uploadImage} id="files" accept="image/*" type="file" hidden />
+          </span>
+          &nbsp;to edit.
+        </p>
+        {modalOpen &&
+          <Modal 
+            setModalOpen={modalOpen} 
+            setSelectedImage={setSelectedImage} 
+            selectedImage={selectedImage}
+          />
+        }
       </section>
       <section className='home__image-section'>
         {images?.map((image, index) => (

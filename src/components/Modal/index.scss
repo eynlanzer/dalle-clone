@@ -1,0 +1,45 @@
+@import '../../styles/variables.scss';
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba($color-grey-0, 0.2);
+  overflow: hidden;
+  z-index: 4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal__container {
+  position: relative;
+  z-index: 5;
+  background-color: $color-grey-6;
+  padding: 1.5rem;
+  border-radius: .75rem;
+  display: flex;
+  flex-direction: column;
+
+  button {
+    background-color: $color-secondary-default;
+    font-weight: 700;
+    color: $color-grey-6;
+    border: none;
+    padding: 1rem;
+    border-radius: .25rem;
+    cursor: pointer;
+    
+    &:hover {
+      background-color: $color-secondary-dark;
+    }
+  }
+}
+
+.modal__image-container {
+  img {
+    width: 100%;
+  }
+}

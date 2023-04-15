@@ -4,21 +4,21 @@
   width: 90vw;
 }
 
-.home__search-section {
+.home__input-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
   width: 100%;
+}
 
-  span {
-    background-color: $color-grey-4;
-    color: $color-grey-0;
-    cursor: pointer;
-    border-radius: .5rem;
-    font-weight: 600;
-    padding: .25rem .75rem;
-    margin: 0 0 .125rem .25rem;
-  }
+.home__input-surprise {
+  background-color: $color-grey-4;
+  color: $color-grey-0;
+  cursor: pointer;
+  border-radius: .5rem;
+  font-weight: 600;
+  padding: .25rem .75rem;
+  margin: 0 0 .125rem .25rem;
 }
 
 .home__input-container {
@@ -74,6 +74,15 @@
   img {
     max-width: 100%;
     height: auto; 
+  }
+}
+
+.home__uploader {
+  text-align: center;
+
+  label {
+    cursor: pointer;
+    text-decoration: underline;
   }
 }
 
