@@ -68,7 +68,7 @@ const Home = () => {
         </p>
         {modalOpen &&
           <Modal 
-            setModalOpen={modalOpen} 
+            setModalOpen={setModalOpen} 
             setSelectedImage={setSelectedImage} 
             selectedImage={selectedImage}
           />
