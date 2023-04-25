@@ -30,9 +30,10 @@ const Home = () => {
     formData.append('file', e.target.files[0])
     setModalOpen(true)
     setSelectedImage(e.target.files[0])
+    e.target.value = null
 
     try {
-      axios.post('/upload', formData).then(response => {
+     await axios.post('/upload', formData).then(response => {
         console.log(response)
       }) 
     } catch (error) {
@@ -43,6 +44,24 @@ const Home = () => {
   const handleSurpriseMe = () => {
     const randomPrompt = surpriseMePrompts[Math.floor(Math.random() * surpriseMePrompts.length)]
     setPromptValue(randomPrompt)
+  }
+
+  const generateVariations = async () => {
+    setImages(null)
+    if (selectedImage === null) {
+      alert('Error! Existing image required')
+      setModalOpen(false)
+      return
+    }
+    try {
+     await axios.post('/variations').then(response => {
+        console.log(response)
+        setImages(response.data)
+        setModalOpen(false)
+      }) 
+    } catch (error) {
+      console.error(error)
+    }
   }
 
   return (
@@ -71,6 +90,7 @@ const Home = () => {
             setModalOpen={setModalOpen} 
             setSelectedImage={setSelectedImage} 
             selectedImage={selectedImage}
+            generateVariations={generateVariations}
           />
         }
       </section>

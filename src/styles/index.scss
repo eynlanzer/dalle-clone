@@ -19,6 +19,11 @@ p {
   font-size: .875rem;
 }
 
+.container {
+  margin: auto;
+  width: 90vw;
+}
+
 @media (min-width: $screen-md) {
   p {
     font-size: 1rem;

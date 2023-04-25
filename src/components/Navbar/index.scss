@@ -1,0 +1,43 @@
+@import '../../styles/variables.scss';
+
+.navbar {
+  align-items: center;
+  background-color: $color-grey-6;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  width: 100vw;
+  border-bottom: 1px solid $color-grey-4;
+}
+
+.navbar__logo {
+  object-fit: contain;
+  width: 7rem;
+  margin-left: 1rem;
+
+  img {
+    display: block;
+    vertical-align: middle;    
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+.navbar__btn {
+  margin-right: 1rem;
+}
+
+@media (min-width: $screen-md) {
+  .navbar {
+    padding: 1rem 4rem;
+    width: 90vw;
+  }
+
+  .navbar__logo {
+    margin-left: 0;
+  }
+
+  .navbar__btn {
+    margin-right: 0;
+  }
+}

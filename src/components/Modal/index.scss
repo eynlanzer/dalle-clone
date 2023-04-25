@@ -1,36 +1,37 @@
 @import '../../styles/variables.scss';
 
 .modal {
+  align-items: center;
+  background-color: rgba($color-grey-0, 0.2);
+  display: flex;
+  left: 0;
+  height: 100vh;
+  justify-content: center;
+  overflow: hidden;
   position: absolute;
   top: 0;
-  left: 0;
   width: 100vw;
-  height: 100vh;
-  background-color: rgba($color-grey-0, 0.2);
-  overflow: hidden;
   z-index: 4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .modal__container {
-  position: relative;
-  z-index: 5;
   background-color: $color-grey-6;
-  padding: 1.5rem;
   border-radius: .75rem;
   display: flex;
   flex-direction: column;
+  padding: 1.5rem;
+  position: relative;
+  width: 100%;
+  z-index: 5;
 
   button {
     background-color: $color-secondary-default;
-    font-weight: 700;
-    color: $color-grey-6;
     border: none;
-    padding: 1rem;
     border-radius: .25rem;
+    color: $color-grey-6;
     cursor: pointer;
+    font-weight: 700;
+    padding: 1rem;
     
     &:hover {
       background-color: $color-secondary-dark;
@@ -38,16 +39,27 @@
   }
 }
 
+.modal__close {
+  display: flex;
+  justify-content: end;
+  margin-bottom: .5rem;
+
+  svg {
+    cursor: pointer;
+  }
+}
+
 .modal__image-container {
   display: flex;
-  height: 256px;
   justify-content: center;
+  margin: auto;
+  max-height: 257px;
+  max-width: 257px;
   overflow: hidden;
-  width: 256px;
-  
-  // img {
-  //   height: 256px;
-  //   overflow: hidden;
-  //   width: 256px;
-  // }
+}
+
+@media (min-width: $screen-md) {
+  .modal__container {
+    width: auto;
+  }
 }
